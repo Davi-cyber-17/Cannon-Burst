@@ -1,0 +1,36 @@
+:root{--cy:#00f0ff;--mg:#ff2bd6;--bg:#050914;--u:1px;box-sizing:border-box}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent;user-select:none;-webkit-user-select:none}
+html,body{margin:0;height:100%;overflow:hidden;background:var(--bg);font-family:Orbitron,"Segoe UI",Consolas,monospace;touch-action:none;overscroll-behavior:none}
+body{background:radial-gradient(ellipse at 50% 0%,#12285a 0,var(--bg) 70%)}
+body::before{content:"";position:fixed;inset:0;pointer-events:none;
+ background-image:linear-gradient(rgba(0,240,255,.07) 1px,transparent 1px),linear-gradient(90deg,rgba(0,240,255,.07) 1px,transparent 1px);
+ background-size:48px 48px;
+ -webkit-mask-image:radial-gradient(circle at 50% 50%,#000,transparent 80%);mask-image:radial-gradient(circle at 50% 50%,#000,transparent 80%)}
+#wrap{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;
+ padding:env(safe-area-inset-top,0px) env(safe-area-inset-right,0px) env(safe-area-inset-bottom,0px) env(safe-area-inset-left,0px)}
+#stage{position:relative;height:100%;max-width:100%;aspect-ratio:9/16;overflow:hidden;
+ border:1px solid rgba(0,240,255,.35);box-shadow:0 0 40px rgba(0,240,255,.18),inset 0 0 30px rgba(0,240,255,.08)}
+canvas{display:block;contain:strict;width:100%;height:100%;background:var(--bg);touch-action:none}
+.ui{position:absolute;inset:0;z-index:2;display:flex;flex-direction:column;align-items:center;justify-content:center;
+ gap:calc(var(--u)*16);padding:calc(var(--u)*24);color:#fff;text-align:center;
+ background:rgba(5,9,20,.88)}
+.tag{font-size:max(10px,calc(var(--u)*12));letter-spacing:.3em;color:var(--cy);opacity:.85}
+.ui h1{margin:0;font-weight:900;font-size:max(26px,calc(var(--u)*40));letter-spacing:.06em;
+ background:linear-gradient(90deg,var(--cy),var(--mg));-webkit-background-clip:text;background-clip:text;color:transparent;}
+.ui p{margin:0;max-width:85%;font-family:"Segoe UI",system-ui,sans-serif;font-size:max(13px,calc(var(--u)*16));line-height:1.5;color:#a9dcff}
+.stats{display:flex;flex-wrap:wrap;justify-content:center;gap:calc(var(--u)*10)}
+.stats div{display:flex;flex-direction:column;gap:4px;min-width:calc(var(--u)*110);padding:calc(var(--u)*10) calc(var(--u)*14);
+ border:1px solid rgba(0,240,255,.45);background:rgba(0,240,255,.07);border-radius:6px}
+.stats span{font-size:max(9px,calc(var(--u)*10));letter-spacing:.2em;color:var(--cy)}
+.stats b{font-size:max(16px,calc(var(--u)*24))}
+button{font:inherit;font-weight:700;letter-spacing:.15em;font-size:max(14px,calc(var(--u)*18));min-height:max(44px,calc(var(--u)*56));
+ padding:0 calc(var(--u)*40);color:var(--cy);cursor:pointer;border:0;
+ background:linear-gradient(135deg,rgba(0,240,255,.22),rgba(255,43,214,.22));
+ box-shadow:inset 0 0 0 2px var(--cy),0 0 18px rgba(0,240,255,.35);text-shadow:0 0 8px var(--cy);
+ clip-path:polygon(12px 0,100% 0,100% calc(100% - 12px),calc(100% - 12px) 100%,0 100%,0 12px);transition:background .15s,transform .1s}
+button:hover{background:linear-gradient(135deg,rgba(0,240,255,.4),rgba(255,43,214,.4))}
+button:active{transform:scale(.96)}
+.hidden{display:none!important}
+
+/* em telas de toque o canvas cobre a tela toda: a grade com máscara ficaria escondida, então nem a compomos */
+@media (pointer:coarse){body::before{display:none}}

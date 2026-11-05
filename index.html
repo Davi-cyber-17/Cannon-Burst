@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+<meta name="theme-color" content="#050914">
+<title>Cannon Blust</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="wrap">
+  <div id="stage">
+    <canvas id="c" width="450" height="800"></canvas>
+    <div id="menu" class="ui">
+      <span class="tag">// SISTEMA ONLINE</span>
+      <h1>CANNON BLUST</h1>
+      <p>Arraste (ou use ← →) para mover o canhão. Ele atira sozinho! Quebre as bolas numeradas e pegue as moedas.</p>
+      <button id="play">JOGAR</button>
+    </div>
+    <div id="over" class="ui hidden">
+      <span class="tag">// FALHA NO SISTEMA</span>
+      <h1>FIM DE JOGO</h1>
+      <div id="res" class="stats"></div>
+      <button id="again">JOGAR DE NOVO</button>
+    </div>
+  </div>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
